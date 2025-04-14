@@ -10,10 +10,15 @@ if __name__ == "__main__":
 
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_dir", type=str, default="data")
+
+
+    # 这两个都不能为0，不然后续生成解会报错
     parser.add_argument(
         "--val_data_size", type=int, default=128
     )  # to make validation faster use 128
     parser.add_argument("--test_data_size", type=int, default=1000)
+
+
     parser.add_argument("--num_nodes", type=int, nargs="+", default=[50, 100])
     parser.add_argument("--val_seed", type=int, default=4321)
     parser.add_argument("--test_seed", type=int, default=1234)

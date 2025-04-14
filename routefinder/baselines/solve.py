@@ -57,7 +57,7 @@ def solve(
     """
     if data_type == "mtvrp":
         instances = mtvrp2anyvrp(instances)
-        
+
     if solver == "pyvrp" and isinstance(pyvrp, NoSolver):
         raise ImportError("PyVRP is not installed. Please install it using `pip install -e .[solvers]`.")
     if solver == "lkh" and isinstance(lkh, NoSolver):

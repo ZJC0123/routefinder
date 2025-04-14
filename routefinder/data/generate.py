@@ -197,8 +197,8 @@ def generate_dataset(
     data_dir="data",
     name=None,
     problem="cvrp",
-    dataset_size=1000,
-    graph_sizes=[100],
+    dataset_size=1000,  # 我还是用1吧
+    graph_sizes=[100],  # 节点数 仓库和客户总数
     overwrite=True,
     seed=1234,
     disable_warning=False,

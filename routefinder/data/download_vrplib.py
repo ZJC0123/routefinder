@@ -34,5 +34,6 @@ def download_vrplib():
         else:
             print(f"Error: Failed to download {url}. Status code: {r.status_code}")
 
+
 if __name__ == "__main__":
     download_vrplib()
