@@ -48,13 +48,16 @@ if __name__ == "__main__":
     for root, dirs, files in os.walk("dataset_mini"):
         for file in files:
             if file == "50.npz" or file == "100.npz" or file == "15.npz" or file == "20.npz" or file == "10.npz" or file == "5.npz" or file == "6.npz" or file == "7.npz":
+                if file.split('.')[0] + '_sol_' + solver + '.npz' in files:
+                    print("Already solved", file)
+                    continue
                 data_files.append(os.path.join(root, file))
     # sort data files by length of name
     data_files = sorted(data_files, key=lambda x: len(x))
     # sort by "val" or "test"
-    data_files = sorted(data_files, key=lambda x: x.split("\\")[-2])
+    data_files = sorted(data_files, key=lambda x: x.split("/")[-2])
     # sort by size
-    data_files = sorted(data_files, key=lambda x: int(x.split("\\")[-1].split(".")[0]))
+    data_files = sorted(data_files, key=lambda x: int(x.split("/")[-1].split(".")[0]))
     # print('here1')
     # Go through the files, and run the solver
     for file in tqdm(data_files, desc="Generating dataset solutions with " + solver):
